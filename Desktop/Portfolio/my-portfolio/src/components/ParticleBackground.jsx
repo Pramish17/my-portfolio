@@ -9,7 +9,7 @@ useEffect(()=>{
    const ctx = canvas.getContext("2d");
    let particles = [];
    const particleCount = 50;
-   const colors = ["rgba(255,255,255,0.7"];
+   const colors = ["rgba(255,255,255,0.7)"];
 
    class Particle{
     constructor(){
@@ -36,10 +36,10 @@ update(){
     this.y += this.speedY;
 
     if(this.x <0) this.x = canvas.width;
-    if(this.x> canvas.width) this.x =0;
+    if(this.x > canvas.width) this.x = 0;
     
-    if(this.y <0) this.y = canvas.heigth;
-    if(this.y> canvas.heigth) this.y =0;
+    if(this.y <0) this.y = canvas.height;
+    if(this.y > canvas.height) this.y = 0;
 
     this.draw();
 }
@@ -64,7 +64,7 @@ window.addEventListener("resize", handleResize);
 
 let animationId;
 function animate(){
-    ctx.clearRect(0,0,canvas.width, canvas.width);
+    ctx.clearRect(0,0,canvas.width, canvas.height);
     particles.forEach((p)=> p.update());
     animationId = requestAnimationFrame(animate);
 }
