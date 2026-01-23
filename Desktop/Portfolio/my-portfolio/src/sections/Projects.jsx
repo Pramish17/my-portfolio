@@ -1,16 +1,14 @@
 import { useEffect, useMemo, useRef, useState } from "react"
 
-import img1 from "../assets/img1.JPG"
-import img2 from "../assets/img2.JPG"
-import img3 from "../assets/img3.JPG"
-import photo1 from "../assets/photo1.JPG"
-import photo2 from "../assets/photo2.PNG"
-import photo3 from "../assets/photo3.png"
+import img1 from "../assets/img1.jpg"
+import img2 from "../assets/img2.jpg"
+import photo1 from "../assets/photo1.jpg"
+import photo2 from "../assets/photo2.jpg"
 import { motion, AnimatePresence, useMotionValueEvent, useScroll } from "framer-motion"
 
 
 
-const useIsMobile= (query = "(max-wdith : 639px)") =>{
+const useIsMobile= (query = "(max-width: 639px)") =>{
   const [isMobile, setIsMobile] =useState(
     typeof window !== "undefined" && window.matchMedia(query).matches
   )
@@ -41,6 +39,12 @@ export default function Projects(){
         link: "https://pramishthapa.com/gazetteer/",
         bgColor: "#0d4d3d",
         image: isMobile ? photo1 : img1, // use mobile or desktop image
+      },
+       {
+        title: "Kurakani-Meet",
+        link: "https://kurakani-meet.netlify.app/",
+        bgColor: "#0d4d3d",
+        image: isMobile ? photo2 : img2, // use mobile or desktop image
       }
     ],
     [isMobile] // re-run only when `isMobile` changes
@@ -114,7 +118,7 @@ export default function Projects(){
   md:shadow-[0_35px_60px_-15px_rgba(0,0,0,0.7)] ${
     isMobile? "mb-6 rounded-lg" : "mb-10 sm:mb-12 rounded-xl"
   }
-  h-[62vh] s,:h-[66vh]
+  h-[62vh] sm:h-[66vh]
   `}
   style={{zIndex:10, transition:"box-shadow 250ms ease"}}
   
@@ -125,7 +129,7 @@ export default function Projects(){
   style={{
     position: "relative",
     zIndex: 10,
-    filter: "drop-shadow(0,16px 40 px rgba(0,0,0, 0.65))",
+    filter: "drop-shadow(0 16px 40px rgba(0,0,0,0.65))",
     transition: "filter 200ms ease"
   }}
   loading="lazy"

@@ -40,7 +40,7 @@ export default function Contact(){
   const handleSubmit =  async (e) =>{
     e.preventDefault();
     if(!validateForm()) return;
-    setStatus("Sending");
+    setStatus("sending");
 
     try{
       await emailjs.send(
@@ -63,7 +63,7 @@ export default function Contact(){
       });
     } catch(err){
       console.error("EmailJS Error:",err);
-      setStatus("Error");
+      setStatus("error");
     }
   }
 
@@ -73,7 +73,7 @@ export default function Contact(){
     md:flex-row items-center gap-10
     ">
 <ParticleBackground/>
-<div className="relative z-10 w-full flex felx-col md:flex-row items-center gap-10">
+<div className="relative z-10 w-full flex flex-col md:flex-row items-center gap-10">
   <motion.div className="w-full md:w-1/2 flex justify-center"
   initial = {{opacity:0, x:-50}}
   whileInView={{opacity:1, x:0}}
@@ -106,7 +106,7 @@ transition={{duration:0.6}}
     placeholder="Your Name"
     value= {formData.name}
     onChange={handleChange}
-    className={`p-3 rounded-md bg-white/10 border ${errors.name ? "border-red-500" :"border-gray-500"}text-white focus:outline-none focus:border-blue-500`}
+    className={`p-3 rounded-md bg-white/10 border ${errors.name ? "border-red-500" :"border-gray-500"} text-white focus:outline-none focus:border-blue-500`}
     />
     {errors.name && <p className="text-red-500 text-xs">{errors.name}</p>}
 </div>
@@ -128,7 +128,7 @@ transition={{duration:0.6}}
     <select name="service" 
     value={formData.service}
     onChange={handleChange}
-    className={`p-3 rounded-md bg-white/10 border ${errors.service ? "border-red-500":"border-gray-500"} text-white focus:outline-none focus:border-blue-500`}
+    className={`p-3 rounded-md bg-white/10 border ${errors.budget ? "border-red-500":"border-gray-500"} text-white focus:outline-none focus:border-blue-500`}
     >
       <option value="" disabled>
         Something in mind?
@@ -174,7 +174,7 @@ transition={{duration:0.6}}
 <motion.button className="bg-blue-600 hover:bg-blue-700 disabled:opacity-60 text-white py-3 rounded-md font-semibold transition"
 whileHover={{scale:1.05}}
 whileTap={{scale:0.95}}
-diabled={status === "sending"}
+disabled={status === "sending"}
 type="submit"
 
 >

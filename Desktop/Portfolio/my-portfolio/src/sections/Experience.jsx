@@ -71,7 +71,7 @@ return(
     >
 
     </motion.div>
-<motion.article className="bg-gray-900/80 backdrop-blur border border-b-gray-700/70 rounded-xl p-5 w-[90vw] max-w-sm ml-6 shadow-lg"
+<motion.article className="bg-gray-900/80 backdrop-blur border border-gray-700/70 rounded-xl p-5 w-[90vw] max-w-sm ml-6 shadow-lg"
 style={{opacity, x}}
 transition={{duration:0.4, delay: idx*0.15}}
 >

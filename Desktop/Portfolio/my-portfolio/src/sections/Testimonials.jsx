@@ -1,35 +1,35 @@
 import { motion } from "framer-motion"
 
-import m1 from "../assets/m1.png"
-import m2 from "../assets/m2.png"
-import w1 from "../assets/w1.png"
-import w2 from "../assets/w2.png"
+import m1 from "../assets/m1.jpg"
+import m2 from "../assets/m2.jpg"
+import w1 from "../assets/w1.jpg"
+import w2 from "../assets/w2.jpg"
 
 const testimonials = [
   {
-    name: "Yash Sahu",
-    role: "Software Engineer at HCL Technologies",
+    name: "Shishir Rana",
+    role: "Financial Planning & Analysis Analyst at Global Banking School",
     review:
       "Pramish is a visionary developer. His attention to detail and creativity blew us away. Our project was a massive success because of him.",
     image: m1,
   },
   {
-    name: "Heather Forster",
-    role: "UI/UX Designer at PixelWorks",
+    name: "Sandesh Rana",
+    role: "Vice President at JP Morgan Chase",
     review:
       "Working with Pramish was an absolute pleasure. He brings design and code together like magic. Highly recommend him!",
     image: w1,
   },
   {
-    name: "Amy Jacobsan",
-    role: "Tech Manager at CodeEmpire",
+    name: "Yogya Sharma",
+    role: "Founder & CEO at Oncore Software Solutions",
     review:
       "From concept to execution, Pramish handled everything flawlessly. His work ethic and innovation are unmatched.",
     image: m2,
   },
   {
-    name: "Carry Smith",
-    role: "CTO at Innovate Labs",
+    name: "Dr. Fateme Dinmohammadi",
+    role: "Associate Professor (Reader) in Artificial Intelligence at University of West London",
     review:
       "Pramish transformed our outdated platform into something modern and powerful. His skills are world-class.",
     image: w2,

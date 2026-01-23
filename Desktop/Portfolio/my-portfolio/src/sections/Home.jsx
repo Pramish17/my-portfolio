@@ -50,24 +50,24 @@ React.useEffect(()=>{
                 <div className="absolute inset-0">
                 <div 
                 className="absolute -top-32 -left-32
-                w-[70vw] sm:w-[z-500vw] md:w-[40vw]
+                w-[70vw] sm:w-[50vw] md:w-[40vw]
                 h-[70vw] sm:h-[50vw] md:h-[40vw]
                 max-w-[500px] max-h-[500px]
                 rounded-full
-                bg-linear-to-r from-[#302b63] via-[#00bf8f] to-[#1cd8d2]
-                opa;city-30 sm:opacity-20 md:opacity-10
+                bg-gradient-to-r from-[#302b63] via-[#00bf8f] to-[#1cd8d2]
+                opacity-30 sm:opacity-20 md:opacity-10
                 blur-[100px] sm:blur-[130px] md:blur-[150px]
                 animate-pulse
                 "
                 ></div>
                  <div 
                 className="absolute bottom-0 right-0
-                w-[70vw] sm:w-[z-500vw] md:w-[40vw]
+                w-[70vw] sm:w-[50vw] md:w-[40vw]
                 h-[70vw] sm:h-[50vw] md:h-[40vw]
                 max-w-[500px] max-h-[500px]
                 rounded-full
-                bg-linear-to-r from-[#302b63] via-[#00bf8f] to-[#1cd8d2]
-                opa;city-30 sm:opacity-20 md:opacity-10
+                bg-gradient-to-r from-[#302b63] via-[#00bf8f] to-[#1cd8d2]
+                opacity-30 sm:opacity-20 md:opacity-10
                 blur-[100px] sm:blur-[130px] md:blur-[150px]
                 animate-pulse delay-500
                 "
@@ -97,7 +97,7 @@ React.useEffect(()=>{
                         </motion.div>
 
                         <motion.h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-transparent bg-clip-text
-                        bg-linear-to-r from-[#1cd8d2] to via-[#00bf8f] to-[#302b63] drop-shadow-lg"
+                        bg-gradient-to-r from-[#1cd8d2] via-[#00bf8f] to-[#302b63] drop-shadow-lg"
                         initial= {{opacity: 0, y:40}}
                         animate = {{opacity:1, y:0}}
                         transition={{duration:1}}

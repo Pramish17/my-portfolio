@@ -8,7 +8,7 @@ useEffect(()=>{
     };
     window.addEventListener("mousemove", moveHandler);
     return() => window.removeEventListener("mousemove", moveHandler);
-})
+},[])
 
 
     return(

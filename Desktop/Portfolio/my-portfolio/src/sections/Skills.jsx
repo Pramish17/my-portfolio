@@ -54,13 +54,13 @@ useEffect(()=>{
     touchY.current = e.touches[0].clientY;
   };
   window.addEventListener('wheel', onWheel, {passive:true});
-  window.addEventListener('touchStart', onTouchStart, {passive:true});
-  window.addEventListener('touchMove', onTouchMove, {passive:true});
+  window.addEventListener("touchstart", onTouchStart, {passive:true});
+  window.addEventListener("touchmove", onTouchMove, {passive:true});
 
   return() =>{
     window.removeEventListener('wheel',onWheel);
-    window.removeEventListener('touchStart',onTouchStart);
-    window.removeEventListener('touchMove',onTouchMove);
+    window.removeEventListener("touchstart", onTouchStart);
+    window.removeEventListener("touchmove", onTouchMove);
 
   }
   },[active]);
