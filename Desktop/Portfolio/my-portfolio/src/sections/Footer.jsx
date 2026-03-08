@@ -18,7 +18,7 @@ const glowVariants = {
 }
 
 
-export default function footer(){
+export default function Footer(){
   return(
     <footer className="relative overflow-hidden bg-black">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(55%_60%_at_70%_35%,rgba(13,88,202,0.35),transparent_70%)]"/>
@@ -30,7 +30,7 @@ whileInView={{opacity:1, y:0}}
 transition={{duration:0.8}}
 >
 
-  <h1 className="font-semibold leading-none text-white text-center select-none"
+  <h2 className="font-semibold leading-none text-white text-center select-none"
   style={{
     fontSize:"clamp(3rem, 5vw,14rem)",
     letterSpacing:"0.02em",
@@ -42,7 +42,7 @@ transition={{duration:0.8}}
   >
 
     Pramish Thapa
-  </h1>
+  </h2>
   <div className="h-[3px] w-24 md:w-32 rounded-full bg-gradient-to-r from-[#0d58cc] via-cyan-300 to-emerald-400"/>
 
 <div className="flex gap-5 text-2xl md:text-3xl">

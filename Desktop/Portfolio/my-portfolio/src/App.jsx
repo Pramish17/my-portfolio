@@ -1,7 +1,6 @@
 import React from "react";
 import CustomCursor from "./components/CustomCursor";
 import NavBar from "./components/NavBar";
-import ParticleBackground from "./components/ParticleBackground";
 import About from "./sections/About";
 import Contact from "./sections/Contact";
 import Experience from "./sections/Experience";
@@ -22,8 +21,11 @@ export default function App(){
 
     <div className="relative gradient text-white">
       <CustomCursor/>
-      {/* <ParticleBackground/> */}
       <NavBar/>
+      <a href="#home" className="sr-only focus:not-sr-only fixed top-4 left-4 z-[60] bg-white text-black px-3 py-2 rounded">
+        Skip to content
+      </a>
+      <main>
       <Home/>
       <About/>
       <Skills/>
@@ -31,6 +33,7 @@ export default function App(){
       <Experience/>
       <Testimonials/>
       <Contact/>
+      </main>
       <Footer/>
 
     </div>

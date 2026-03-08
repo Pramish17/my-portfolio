@@ -65,8 +65,8 @@ export default function NavBar(){
 </div>
 <div className="block lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2">
 <button onClick={()=> setMenuOpen(true)}
-    className="text-white text-3xl focus:outline-none" 
-    aria-label="open Menu"
+    className="text-white text-3xl"
+    aria-label="Open menu"
     >
 <FiMenu />
 </button>
@@ -75,9 +75,10 @@ export default function NavBar(){
 
 <div className="hidden lg:block">
     <a href="#contact"
+    aria-label="Jump to contact section"
     className="bg-gradient-to-r from-pink-500 to-blue-500 text-white px-5 py-2 rounded-full font-medium shadow-lg hover:opacity-90 transition-opacity duration-300"
     >
-        Reach Out
+        Contact
     </a>
 
 </div>

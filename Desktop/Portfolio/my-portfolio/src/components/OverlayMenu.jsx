@@ -9,6 +9,9 @@ export default function OverlayMenu({isOpen, onClose}){
     <AnimatePresence>
         {isOpen && (
             <motion.div className="fixed inset-0 flex items-center justify-center z-50"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Site navigation menu"
             initial = {{clipPath:`circle(0% at ${origin})`}}
             animate = {{clipPath: `circle(150% at ${origin})`}}
             exit ={{clipPath: `circle(0% at ${origin})`}}

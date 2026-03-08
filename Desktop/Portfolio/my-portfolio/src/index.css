@@ -1,15 +1,39 @@
 @import "tailwindcss";
 
-body{
-  font-family: "poppins", sans-serif;
+:root {
+  --brand-accent: #1cd8d2;
+  --brand-secondary: #00bf8f;
+  --brand-ink: #0b1017;
 }
 
-h1, h2{
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "poppins", sans-serif;
+  background-color: var(--brand-ink);
+  color: #f3f4f6;
+}
+
+h1,
+h2 {
   font-family: "Roboto", sans-serif;
 }
 
-@layer utilities{
-  .gradient{
-    background: linear-gradient(-45deg, #302b63,#00bf8f, #1cd8d2);
+@layer base {
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid var(--brand-accent);
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  .gradient {
+    background: linear-gradient(-45deg, #302b63, #00bf8f, #1cd8d2);
   }
 }

@@ -30,6 +30,9 @@ export default function Contact() {
     required.forEach((f) => {
       if (!formData[f].trim()) newErrors[f] = "Fill the details in the field";
     });
+    if (formData.email && !/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(formData.email.trim())) {
+      newErrors.email = "Please enter a valid email address";
+    }
     setErrors(newErrors);
     return !Object.keys(newErrors).length;
   };
@@ -111,6 +114,7 @@ export default function Contact() {
                 type="text"
                 name="name"
                 placeholder="Your Name"
+                autoComplete="name"
                 value={formData.name}
                 onChange={handleChange}
                 className={`p-3 rounded-md bg-white/10 border ${
@@ -128,6 +132,7 @@ export default function Contact() {
                 type="email"
                 name="email"
                 placeholder="Your Email"
+                autoComplete="email"
                 value={formData.email}
                 onChange={handleChange}
                 className={`p-3 rounded-md bg-white/10 border ${
@@ -173,6 +178,7 @@ export default function Contact() {
                 name="message"
                 rows={5}
                 placeholder="Enter your message"
+                autoComplete="off"
                 value={formData.message}
                 onChange={handleChange}
                 className={`p-3 rounded-md bg-white/10 border ${
