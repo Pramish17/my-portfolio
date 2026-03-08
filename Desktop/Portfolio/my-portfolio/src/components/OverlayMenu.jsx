@@ -25,7 +25,7 @@ export default function OverlayMenu({isOpen, onClose}){
 <ul className="space-y-6 text-center">
     {
         [
-            "Home","About", "Skills", "Projects", "EXperience","Testimonials", "Contact",
+            "Home","About", "Skills", "Projects", "Experience","Testimonials", "Contact",
         ].map((item, index) => (
             <motion.li key={item}
                  initial ={{opacity:0, y:20}}

@@ -1,10 +1,10 @@
-import { useEffect, useMemo, useRef, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 
 import img1 from "../assets/img1.jpg"
 import img2 from "../assets/img2.jpg"
 import photo1 from "../assets/photo1.jpg"
 import photo2 from "../assets/photo2.jpg"
-import { motion, AnimatePresence, useMotionValueEvent, useScroll } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 
 
 
@@ -27,10 +27,8 @@ return isMobile;
 
 
 export default function Projects(){
-
   const isMobile = useIsMobile();
-  const sceneRef = useRef(null);
-
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const projects = useMemo(
     () => [
@@ -50,81 +48,65 @@ export default function Projects(){
     [isMobile] // re-run only when `isMobile` changes
   );
 
-  const {scrollYProgress} = useScroll({
-    target:sceneRef,
-    offset : ["start start", "end end"]
-  })
-  const thresholds = projects.map((_,i) => (i+1)/projects.length)
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  useMotionValueEvent(scrollYProgress, "change", (v) => {
-    const idx = thresholds.findIndex((t) => v <= t);
-    setActiveIndex(idx === -1 ? thresholds.length -1 : idx)
-  });
-
   const activeProject = projects[activeIndex];
+  const nextProject = () =>
+    setActiveIndex((prev) => (prev + 1) % projects.length);
+  const prevProject = () =>
+    setActiveIndex((prev) => (prev - 1 + projects.length) % projects.length);
+  const goToProject = (index) => setActiveIndex(index);
 
   return(
-    <section id = "projects" 
-    ref={sceneRef}
-    className="relative text-white"
+    <section id = "projects"
+    className="relative min-h-screen text-white flex items-center justify-center py-16 sm:py-20"
     style={{
-      height : `${100*projects.length}vh`,
       backgroundColor : activeProject.bgColor,
       transition: "background-color 400ms ease"
     }}
     >
- <div className="sticky top-0 h-screen flex flex-col items-center justify-center">
+ <div className="w-full max-w-7xl px-4 sm:px-6 flex flex-col items-center justify-center">
   <h2 className={`text-3xl font-semibold z-10 text-center ${
     isMobile ? "mt-4" :"mt-8"
   }`}>
     My Work
   </h2>
-<div className={`relative w-full flex-1 flex items-center justify-center ${
-  isMobile ? "-mt-4":""
+<div className={`relative w-full flex items-center justify-center ${
+  isMobile ? "mt-2":"mt-4"
 }`}>
-  {projects.map((project, idx) =>  (
-    <div key={project.title}
-    className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-500 ${
-      activeIndex === idx ? "opacity-100 z-20" : "opacity-0 z-0 sm:z-10"
-    } `}
-    style={{width: "85%", maxWidth: "1200px"}}
-    >
-      <AnimatePresence mode="wait">
-      {activeIndex ===idx && (
-        <motion.h3 key={project.title}
-        initial = {{opacity:0, y:-30}}
-        animate = {{opacity:1, y:0}}
-        exit = {{opacity:0, y:30}}
-        transition={{duration: 0.5, ease:"easeOut"}}
-        className={`block text-center text-[clamp(2rem,6vw,5rem)] text-white/95 sm:absolute sm:-top-20 sm:left-[35%] lg:left-[-5%] sm:mb-0
-          italic font-semibold ${
-            isMobile ? "-mt-24" : ""
-          }
-          `}
-
-          style={{
-            zIndex: 5,
-            textAlign: isMobile? "center" : "left",
-          }}
-
-
+  <div className="relative w-full" style={{ maxWidth: "1200px" }}>
+    <AnimatePresence mode="wait">
+      <motion.div
+      key={activeProject.title}
+      initial={{opacity:0, x:40}}
+      animate={{opacity:1, x:0}}
+      exit={{opacity:0, x:-40}}
+      transition={{duration:0.35, ease:"easeOut"}}
+      drag="x"
+      dragConstraints={{left: 0, right: 0}}
+      onDragEnd={(_, info) => {
+        if (info.offset.x < -80) nextProject();
+        if (info.offset.x > 80) prevProject();
+      }}
+      >
+        <motion.h3
+        initial={{opacity:0, y:-20}}
+        animate={{opacity:1, y:0}}
+        transition={{duration: 0.3, ease:"easeOut"}}
+        className={`block text-center text-[clamp(2rem,6vw,5rem)] text-white/95 italic font-semibold ${
+          isMobile ? "mb-3" : "mb-5"
+        }`}
         >
-          {project.title}
+          {activeProject.title}
         </motion.h3>
-      )}
-      </AnimatePresence>
+
 <div className={`relative w-full overflow-hidden bg-black/20 shadow-2xl
   md:shadow-[0_35px_60px_-15px_rgba(0,0,0,0.7)] ${
     isMobile? "mb-6 rounded-lg" : "mb-10 sm:mb-12 rounded-xl"
   }
-  h-[62vh] sm:h-[66vh]
+  h-[56vh] sm:h-[66vh]
   `}
   style={{zIndex:10, transition:"box-shadow 250ms ease"}}
-  
-  
   >
-  <img src={project.image} alt={project.title} 
+  <img src={activeProject.image} alt={activeProject.title}
   className="w-full h-full object-cover drop-shadow-xl md:drop-shadow-2xl"
   style={{
     position: "relative",
@@ -143,22 +125,51 @@ export default function Projects(){
   </div>
 
 </div>
-    </div>
+      </motion.div>
+    </AnimatePresence>
+  </div>
+</div>
+
+<div className={`w-full max-w-7xl px-4 sm:px-6 flex items-center justify-center gap-3 ${isMobile ? "mt-0" : "mt-2"}`}>
+  {projects.map((project, idx) => (
+    <button
+    key={project.title}
+    type="button"
+    onClick={() => goToProject(idx)}
+    className={`h-2.5 rounded-full transition-all ${
+      activeIndex === idx ? "w-8 bg-white" : "w-2.5 bg-white/45 hover:bg-white/70"
+    }`}
+    aria-label={`Go to ${project.title}`}
+    aria-current={activeIndex === idx ? "true" : "false"}
+    />
   ))}
 </div>
 
-
-<div className={`absolute ${
-  isMobile? "bottom-20": "bottom-10"
-}`}>
+<div className="mt-6 flex items-center gap-3">
+  <button
+  type="button"
+  onClick={prevProject}
+  className="inline-flex items-center justify-center px-4 py-2 rounded-lg border border-white/30 text-white hover:bg-white/10 transition-all"
+  aria-label="Previous project"
+  >
+    Prev
+  </button>
   <a href={activeProject?.link}
   target="_blank"
   rel="noopener noreferrer"
   className="inline-block px-6 py-3 font-semibold rounded-lg bg-white text-black hover:bg-gray-200 transition-all"
   aria-label={`View ${activeProject?.title}`}  
   >View Project</a>
+  <button
+  type="button"
+  onClick={nextProject}
+  className="inline-flex items-center justify-center px-4 py-2 rounded-lg border border-white/30 text-white hover:bg-white/10 transition-all"
+  aria-label="Next project"
+  >
+    Next
+  </button>
 </div>
- </div>
+</div>
 
     </section>
   )

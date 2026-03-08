@@ -63,7 +63,7 @@ transition={{duration:0.8}}
 ))}
 </div>
 <p className="text-gray-300 italic max-w-xl">
-  "If you set your goals ridiculously high and it's a failure, you will fail above everyone else's success."
+  "Turning complex problems into simple software solutions."
   </p>
   <p className="text-xs text-gray-400">
     &copy; {new Date().getFullYear()} Pramish Thapa. All rights reserved.

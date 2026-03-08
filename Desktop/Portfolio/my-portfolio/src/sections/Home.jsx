@@ -25,7 +25,7 @@ const glowVariants = {
 
 export default function Home(){
 
-const roles = useMemo(()=>["Web Developer", "Software Developer"],[]);
+const roles = useMemo(()=>["Web Developer", "Software Developer", "Cloud Developer"],[]);
 
 const [index, setIndex] = React.useState(0);
 const [subIndex, setSubIndex] = React.useState(0);
@@ -103,7 +103,7 @@ React.useEffect(()=>{
                         transition={{duration:1}}
                         >
 
-                            Hello, I'm
+                            Hello, I am
                             <br />
                             <span className="text-white font-bold text-5xl sm:text-6xl md:text-7xl lg:text-8xl lg:whitespace-nowrap">
                                 Pramish Thapa
@@ -128,10 +128,10 @@ React.useEffect(()=>{
                             bg-gradient-to-r from-[#1cd8d2] via-[#00bf8f] to-[#302b63]
                             shadow-lg hover:scale-105 transition-all"
                             >View My Work</a>
-                            <a href ="/Resume.pdf"
+                            <a href ="/PramishCV.pdf"
                             download 
                             className="px-6 py-3 rounded-full text-lg font-medium text-black bg-white hover:bg-gray-200 shadow-lg hover:scale-105 transition-all"
-                            >My Resume</a>
+                            >Download My CV</a>
                         </motion.div>
 
 <div className="mt-10 flex - gap-5 text-2xl md:text-3xl justify-center lg:justify-start">

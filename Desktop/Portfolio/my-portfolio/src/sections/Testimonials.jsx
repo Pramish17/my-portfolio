@@ -7,37 +7,34 @@ import w2 from "../assets/w2.jpg"
 
 const testimonials = [
   {
-    name: "Shishir Rana",
-    role: "Financial Planning & Analysis Analyst at Global Banking School",
-    review:
-      "Pramish is a visionary developer. His attention to detail and creativity blew us away. Our project was a massive success because of him.",
-    image: m1,
-  },
-  {
-    name: "Sandesh Rana",
-    role: "Vice President at JP Morgan Chase",
-    review:
-      "Working with Pramish was an absolute pleasure. He brings design and code together like magic. Highly recommend him!",
-    image: w1,
-  },
-  {
-    name: "Yogya Sharma",
-    role: "Founder & CEO at Oncore Software Solutions",
-    review:
-      "From concept to execution, Pramish handled everything flawlessly. His work ethic and innovation are unmatched.",
-    image: m2,
-  },
-  {
-    name: "Dr. Fateme Dinmohammadi",
-    role: "Associate Professor (Reader) in Artificial Intelligence at University of West London",
-    review:
-      "Pramish transformed our outdated platform into something modern and powerful. His skills are world-class.",
-    image: w2,
-  },
+  name: "Shishir Rana",
+  role: "Financial Planning & Analysis Analyst at Global Banking School",
+  review:
+    "Pramish is a highly dedicated developer who pays great attention to detail. His ability to understand requirements and translate them into practical solutions made a real difference to our project. It was a pleasure working with someone so reliable and committed.",
+  image: m1,
+},
+{
+  name: "Sandesh Rana",
+  role: "Vice President at JP Morgan Chase",
+  review:
+    "Pramish brings a thoughtful and structured approach to development. He combines strong technical skills with a willingness to learn and improve continuously. I would gladly recommend him to any team looking for a motivated and dependable developer.",
+  image: w1,
+},
+{
+  name: "Yogya Sharma",
+  role: "Founder & CEO at Oncore Software Solutions",
+  review:
+    "During his time working with us, Pramish consistently demonstrated strong problem-solving skills and a proactive attitude. He takes ownership of his work and strives to deliver quality results. He was a valuable member of the team.",
+  image: m2,
+},
+{
+  name: "Dr. Fateme Dinmohammadi",
+  role: "Associate Professor (Reader) in Artificial Intelligence at University of West London",
+  review:
+    "Pramish showed strong commitment and curiosity throughout his academic and technical work. He approaches challenges with a positive mindset and demonstrates the ability to apply his software engineering knowledge effectively in practical projects.",
+  image: w2,
+},
 ];
-
-
-
 
 export default function Testimonials(){
   return(

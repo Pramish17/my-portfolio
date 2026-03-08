@@ -2,30 +2,34 @@ import {motion,  useScroll,  useTransform } from "framer-motion";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 const experiences = [
-  {
-    role: "Software Engineer",
-    company:"InfoxIT",
-    duration:"2020-2021",
-    description:"Built Web Applications"
-  },
-  {
-    role: "Software Engineer",
-    company:"Oncore Software Solutions",
-    duration:"2021-2023",
-    description:"Built Microservices"
-  },
-  {
-    role: "MSc. Graduate",
-    company:"University of West London | Distinction",
-    duration:"2023-2024",
-    description:"Relevant Modules:  Big Data Analytics, Machine Learning, Advanced Topic in Software Engineering, Mobile Web Development"
-  },
-  {
-    role: "Full-Stack Developer Trainee",
-    company:"IT Career Switch",
-    duration:"2024-Present",
-    description:"Built Full-stack apps"
-  }
+   {
+  role: "Full-Stack Developer Trainee",
+  company: "IT Career Switch",
+  duration: "2025 – Present",
+  description: "Training in full-stack development including JavaScript, backend systems, REST APIs, and deployment workflows."
+},
+
+{
+  role: "MSc Software Engineering",
+  company: "University of West London | Distinction",
+  duration: "2023 – 2024",
+  description: "Focused on Big Data Analytics, Machine Learning, and advanced software engineering practices."
+},
+
+{
+  role: "Software Engineer",
+  company: "Oncore Software Solutions",
+  duration: "2021 – 2023",
+  description: "Developed cloud-based backend services supporting credit risk and identity verification systems on GCP."
+},
+
+{
+  role: "Software Engineer",
+  company: "InfoxIT",
+  duration: "2020 – 2021",
+  description: "Built backend modules for accounting and inventory systems using Java, Spring, Hibernate, and MySQL."
+}
+ 
 ];
 
 function ExperienceItem({exp, idx, start, end, scrollYProgress, layout}){
