@@ -17,8 +17,6 @@ export default function App(){
     <>
 {!introDone && <IntroAnimation onFinish ={()=> setIntroDone(true)} />}
 
-  {introDone && (
-
     <div className="relative gradient text-white">
       <CustomCursor/>
       <NavBar/>
@@ -37,7 +35,6 @@ export default function App(){
       <Footer/>
 
     </div>
-    )}
     </>
 
   )
