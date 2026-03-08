@@ -57,17 +57,17 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="relative min-h-screen text-white flex items-center justify-center py-16 sm:py-20"
+      className="relative min-h-screen text-white flex items-start justify-center pt-8 sm:pt-10 pb-16"
       style={{
         backgroundColor: activeProject.bgColor,
         transition: "background-color 400ms ease",
       }}
     >
       <div className="w-full max-w-7xl px-4 sm:px-6 flex flex-col items-center justify-center">
-        <h2 className={`text-3xl sm:text-4xl font-semibold z-10 text-center ${isMobile ? "mt-4" : "mt-8"}`}>My Work</h2>
+        <h2 className={`text-4xl sm:text-5xl font-semibold z-10 text-center ${isMobile ? "mt-2" : "mt-5"}`}>My Work</h2>
         <p className="text-white/80 mt-2 text-center">Selected projects with practical outcomes and production-ready delivery.</p>
 
-        <div className={`relative w-full flex items-center justify-center ${isMobile ? "mt-4" : "mt-6"}`}>
+        <div className={`relative w-full flex items-center justify-center ${isMobile ? "mt-3" : "mt-5"}`}>
           <div className="relative w-full" style={{ maxWidth: "1200px" }}>
             <AnimatePresence mode="wait">
               <motion.div
@@ -83,7 +83,7 @@ export default function Projects() {
                   if (info.offset.x > 80) prevProject();
                 }}
               >
-                <h3 className={`block text-center text-[clamp(2rem,6vw,4.2rem)] text-white italic font-semibold ${isMobile ? "mb-3" : "mb-5"}`}>
+                <h3 className={`block text-center text-[clamp(1.5rem,4vw,2.75rem)] text-white italic font-semibold ${isMobile ? "mb-3" : "mb-5"}`}>
                   {activeProject.title}
                 </h3>
 

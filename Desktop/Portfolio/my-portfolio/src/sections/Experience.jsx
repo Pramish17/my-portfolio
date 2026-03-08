@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 const experiences = [
   {
     role: "Full-Stack Developer Trainee",
-    company: "IT Career Switch",
+    company: "IT Career Switch UK",
     duration: "2025 - Present",
     description: "Training in full-stack development including JavaScript, backend systems, REST APIs, and deployment workflows.",
   },

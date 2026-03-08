@@ -3,9 +3,7 @@ import React, { useEffect, useMemo } from "react"
 
 export default function IntroAnimation({onFinish}){
 const greetings = useMemo(()=>[
-    "Hello", "Hola", "Bonjour",
-      "Ciao", "Olá", "Здравствуйте", "您好",
-      "Merhaba", "Γειά", "Hej", "Hallo", "Salam","झोर्ले","नमस्ते"
+    "Hello", "Hola", "Bonjour","Привет","Ciao","السلام عليكم", "Olá", "こんにちは","Merhaba","你好","안녕하세요","झोर्ले","नमस्ते"
 ],[])
 
 const [index, setIndex] = React.useState(0);
@@ -13,7 +11,7 @@ const [visible, setVisible] = React.useState(true);
 
 useEffect(()=> {
     if(index < greetings.length-1){
-        const id = setInterval(()=> setIndex((i) => i+1), 180);
+        const id = setInterval(()=> setIndex((i) => i+1), 200);
         return() => clearInterval(id);
     }else{
         const t = setTimeout(()=> setVisible(false),300);
